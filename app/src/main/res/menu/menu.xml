@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/home"
+        android:title="主頁"
+        android:icon="@drawable/ic_home_black_24dp"/>
+
+    <item android:id="@+id/bookmarks"
+        android:title="書籤"
+        android:icon="@drawable/ic_bookmark_border_black_24dp"/>
+
+    <item android:id="@+id/user"
+        android:title="我的帳戶"
+        android:icon="@drawable/ic_person_black_24dp"/>
+
+
+</menu>

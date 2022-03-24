@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name= "colorToolbar">#EEC277</color>
+    <color name="black55transparent">#55000000</color>
+    <color name="toolbar_color">#2693de</color>
+    <color name="toolbar_color2">#ffb83c</color>
+    <color name="Triadic1">#3cffb8</color>
+    <color name="Triadic2">#b83cff</color>
+    <color name="Analogous1">#e5ff3c</color>
+    <color name="Analogous2">#ff573c</color>
+    <color name="pink">#ff9393</color>
+    <color name="light_blue">#39c1c8</color>
+    <color name="sharp_blue">#2693de</color>
+    <color name="light_red">#ed6f5c</color>
+    <color name="white">#FFFFFF</color>
+
+</resources>

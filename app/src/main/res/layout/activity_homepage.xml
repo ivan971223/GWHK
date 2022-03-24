@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="Fragment.HomeFragment"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+        android:background="#FFFFFF">
+
+
+
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:id='@+id/collapsing'
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:fitsSystemWindows="true"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed"
+        app:contentScrim="#0e0d0e"
+        app:expandedTitleTextAppearance="@android:color/transparent"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/background_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/homepagebg2"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:text="你想去那裡?"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+        <RelativeLayout
+        android:id="@+id/mainContainer2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:visibility="visible">
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/search_field"
+                android:layout_width="331dp"
+                android:layout_height="41dp"
+                android:layout_toStartOf="@+id/search_btn"
+                android:background="@drawable/black_rectangle"
+                android:ems="10"
+                android:hint="搜尋香港景點"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp"
+                android:textColor="#999999"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageButton
+                android:id="@+id/search_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/background_light"
+                android:src="@drawable/ic_search_black_24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/search_field"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/weatherword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:layout_below="@+id/search_bar"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="10dp"
+            android:text="本週天氣"></TextView>
+
+        <TextView
+            android:id="@+id/updatedAtText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_above="@+id/scrollrightweather"
+            android:textSize="10sp"
+            android:text="UPDATED"></TextView>
+
+        <HorizontalScrollView
+            android:id="@+id/scrollrightweather"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gradient2"
+            android:layout_below="@+id/weatherword"
+            android:layout_marginBottom="30dp"
+            android:elevation="5dp"
+            android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/tdyweather"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/weatherword"
+                android:weightSum="7">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="vertical"
+                    android:padding="2dp">
+
+                    <TextView
+                        android:id="@+id/curr_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="2020/6/21"
+                        android:textColor="#000000"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@+id/curr_icon"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/wind" />
+
+
+                    <TextView
+                        android:id="@+id/curr_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="today temp"
+                        android:textColor="#000000"
+                        android:textSize="12sp"></TextView>
+
+                    <TextView
+                        android:id="@+id/curr_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="陰，多雲"
+                        android:textColor="#000000"
+                        android:textSize="14sp"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:padding="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="濕度:"
+                        android:textSize="10sp"></TextView>
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="5dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="紫外線指數:"
+                        android:textSize="10sp"></TextView>
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="5dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="日出時間:"
+                        android:textSize="10sp"></TextView>
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="5dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="日落時間:"
+                        android:textSize="10sp"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:padding="4dp">
+
+                    <TextView
+                        android:id="@+id/curr_humidity"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="15"
+                        android:textSize="10sp"></TextView>
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="5dp"/>
+
+                    <TextView
+                        android:id="@+id/curr_uvi"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:textSize="10sp"></TextView>
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="5dp"/>
+
+                    <TextView
+                        android:id="@+id/curr_sunrise"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6:00"
+                        android:textSize="10sp"></TextView>
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="5dp"/>
+
+                    <TextView
+                        android:id="@+id/curr_sunset"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="15:00"
+                        android:textSize="10sp"></TextView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#505050" />
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/date2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="2020/6/20"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/icon2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/wind" />
+
+
+                <TextView
+                    android:id="@+id/temp2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="today temp"
+                    android:textColor="#000000"
+                    android:textSize="12sp"></TextView>
+
+                <TextView
+                    android:id="@+id/status2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="陰，多雲"
+                    android:textColor="#000000"
+                    android:textSize="14sp"></TextView>
+
+            </LinearLayout>
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#505050"/>
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/date3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="2020/6/20"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/icon3"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/wind" />
+
+                <TextView
+                    android:id="@+id/temp3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="today temp"
+                    android:textColor="#000000"
+                    android:textSize="12sp"></TextView>
+
+                <TextView
+                    android:id="@+id/status3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="陰，多雲"
+                    android:textColor="#000000"
+                    android:textSize="14sp"></TextView>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#505050" />
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/date4"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="2020/6/20"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/icon4"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/wind" />
+
+
+                <TextView
+                    android:id="@+id/temp4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="today temp"
+                    android:textColor="#000000"
+                    android:textSize="12sp"></TextView>
+
+                <TextView
+                    android:id="@+id/status4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="陰，多雲"
+                    android:textColor="#000000"
+                    android:textSize="14sp"></TextView>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#505050"/>
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/date5"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="2020/6/23"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/icon5"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/wind" />
+
+
+                <TextView
+                    android:id="@+id/temp5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="today temp"
+                    android:textColor="#000000"
+                    android:textSize="12sp"></TextView>
+
+                <TextView
+                    android:id="@+id/status5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="陰，多雲"
+                    android:textColor="#000000"
+                    android:textSize="14sp"></TextView>
+
+            </LinearLayout>
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#505050"/>
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/date6"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="2020/6/20"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/icon6"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/wind" />
+
+
+                <TextView
+                    android:id="@+id/temp6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="today temp"
+                    android:textColor="#000000"
+                    android:textSize="12sp"></TextView>
+
+                <TextView
+                    android:id="@+id/status6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="陰，多雲"
+                    android:textColor="#000000"
+                    android:textSize="14sp"></TextView>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#505050"/>
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/date7"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="2020/6/20"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/icon7"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/wind" />
+
+
+                <TextView
+                    android:id="@+id/temp7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="today temp"
+                    android:textColor="#000000"
+                    android:textSize="12sp"></TextView>
+
+                <TextView
+                    android:id="@+id/status7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="陰，多雲"
+                    android:textColor="#000000"
+                    android:textSize="14sp"></TextView>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        </HorizontalScrollView>
+
+            <TextView
+            android:id="@+id/catergory_subheading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打卡熱點"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:layout_below="@+id/scrollrightweather"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_below="@+id/catergory_subheading"
+                android:id="@+id/recycler_category"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="50dp"
+                android:nestedScrollingEnabled="false"/>
+
+
+        </RelativeLayout>
+
+
+
+
+
+    <ProgressBar
+        android:id="@+id/loader2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/errorText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Something went wrong"
+        android:visibility="gone" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
